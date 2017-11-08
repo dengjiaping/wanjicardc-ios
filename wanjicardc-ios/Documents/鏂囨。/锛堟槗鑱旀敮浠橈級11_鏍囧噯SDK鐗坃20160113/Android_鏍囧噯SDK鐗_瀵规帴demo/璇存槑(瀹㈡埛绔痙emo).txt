@@ -1,0 +1,91 @@
+﻿───────
+ 代码文件结构
+───────
+对接demo
+  │
+  ├─src--------------------------------------源代码，类文件夹
+  │  │
+  │  └─com.merchant.demo---------------------商户对接demo目录，商户可参考该目录下的文件进行自己的业务逻辑编写
+  │     │
+  │     ├─MainActivity.java------------------商户对接入口示例代码，包含下单、跳转支付、接收回调等
+  │     └─ResultActivity.java----------------支付结果展示，动态显示返回的订单状态数据
+  │
+  │
+  ├─libs-------------------------------------依赖引入目录
+  │  │
+  │  ├─locSDK_4.2.jar------------------------百度定位依赖包（支付插件核心包文件）
+  │  ├─payecoplugin.jar----------------------易联支付插件核心包（支付插件核心包文件）
+  │  │
+  │  └─armeabi
+  │     │
+  │     └─liblocSDK4d.so---------------------百度定位依赖包（支付插件核心包文件）
+  │
+  │
+  ├─res--------------------------------------资源目录
+  │  │
+  │  ├─drawable------------------------------Android图片资源（该目录下的文件都为资源文件，全部文件都为支付插件核心的；不单独每个列出）
+  │  ├─values--------------------------------Android值定义资源（payeco开头的文件为支付插件核心的文件，其他为对接demo的文件）
+  │  │
+  │  └─layout
+  │     │
+  │     ├─activity_main.xml------------------下单去支付界面配置（对接demo配置）
+  │     ├─activity_result.xml----------------支付结果显示界面配置（对接demo配置）
+  │     ├─payeco_plugin_credit_keyboard.xml--信用卡键盘界面配置（支付插件核心配置）
+  │     ├─payeco_plugin_keyboard.xml---------密码键盘界面配置（支付插件核心配置）
+  │     ├─payeco_plugin_spinner_itme.xml-----下拉选择界面配置（支付插件核心配置）
+  │     └─payeco_plugin_wait_dialog.xml------通讯等待界面配置（支付插件核心配置）
+  │
+  │
+  ├─AndroidManifest.xml-----------------------Android主配置文件
+  │
+  │
+  └─说明.txt----------------------------------使用说明文本
+
+
+※注意※
+◆需要配置的常量是：
+--com.merchant.demo.MainActivity.java
+	URL_PAY_ORDER ： 	    商户服务器下单地址，该地址为服务器对接demo的提供的下单地址（order.do / Order.aspx）；
+	URL_PAY_NOTIFY ：	    通知服务器支付结果地址，该地址为服务器对接demo的提供的接收订单结果地址（Notify.do / Notify.aspx）；
+	BROADCAST_PAY_END ：	接收支付结果广播地址；
+
+
+◆MainActivity源代码相关说明：
+--com.merchant.demo.MainActivity.java
+  │
+  ├─BroadcastReceiver payecoPayBroadcastReceiver : 成员变量广播接收器，用于接收支付结果回调
+  │
+  ├─void initPayecoPayBroadcastReceiver() : 初始化广播接收器方法
+  │
+  ├─onCreate(Bundle savedInstanceState)   :　界面加载
+  │  │
+  │  ├─ //初始化支付结果广播接收器
+  │  │  initPayecoPayBroadcastReceiver();
+  │  └─	//注册支付结果广播接收器
+  │	    IntentFilter filter = new IntentFilter();
+  │	    filter.addAction(BROADCAST_PAY_END);
+  │	    filter.addCategory(Intent.CATEGORY_DEFAULT);
+  │	    registerReceiver(payecoPayBroadcastReceiver, filter);
+  │
+  │
+  ├─pay(View view) : 支付按扭点击事件
+  │  │
+  │  │
+  │  ├─httpComm(URL_PAY_ORDER, reqParams) : 请求服务端进行下单
+  │  │
+  │  └─//跳转至易联支付插件
+	│	    Intent intent = new Intent(MainActivity.this,PayecoPluginLoadingActivity.class);
+	│	    intent.putExtra("upPay.Req", upPayReqString);
+	│	    intent.putExtra("Broadcast", BROADCAST_PAY_END); //广播接收地址
+	│	    intent.putExtra("Environment", "00");       // 00: 测试环境, 01: 生产环境
+	│	    startActivity(intent);                      //跳转至易联支付插件
+  │
+  │
+  └─private void initPayecoPayBroadcastReceiver()  : 初始化支付结果广播接收器
+     │
+     ├─ //接收易联支付插件的广播回调
+		 │  String action = intent.getAction();
+     │
+     └─ //通知商户服务器
+        respString = httpComm(URL_PAY_NOTIFY, reqParams);
+

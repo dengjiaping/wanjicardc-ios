@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>MerchantDemo</display-name>
+
+	<!-- 下单（SDK） -->
+	<servlet>
+		<servlet-name>PlaceOrder</servlet-name>
+		<servlet-class>com.merchant.demo.OrderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PlaceOrder</servlet-name>
+		<url-pattern>/order.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 下单(H5版本) -->
+	<servlet>
+		<servlet-name>PlaceOrderH5</servlet-name>
+		<servlet-class>com.merchant.demo.OrderServletH5</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PlaceOrderH5</servlet-name>
+		<url-pattern>/orderH5.do</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 订单结果异步通知 -->
+	<servlet>
+		<servlet-name>Notify</servlet-name>
+		<servlet-class>com.merchant.demo.NotifyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Notify</servlet-name>
+		<url-pattern>/Notify.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 订单结果同步通知（H5版本） -->
+	<servlet>
+		<servlet-name>ReturnH5</servlet-name>
+		<servlet-class>com.merchant.demo.ReturnServletH5</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReturnH5</servlet-name>
+		<url-pattern>/ReturnH5.do</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 测试主页面 -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,2 @@
+ --------------------Android 6.0--------------
+如需适配android6.0，没有添加org.apache.http.legacy.jar的需要添加。

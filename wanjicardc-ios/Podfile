@@ -1,0 +1,56 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '7.0'
+inhibit_all_warnings!
+
+#图片下载
+pod 'SDWebImage', '3.7.2'
+
+#统计分析
+pod 'Bugly'
+
+pod 'UMengAnalytics-NO-IDFA'
+pod 'JPush'
+
+#网络请求
+pod 'Reachability', '3.2'
+pod 'AFNetworking', '3.0.1'
+
+#SQLite数据库操作
+pod 'FMDB', '2.5'
+
+# pod 'FMDB/FTS'   # FMDB with FTS
+# pod 'FMDB/standalone'   # FMDB with latest SQLite amalgamation source
+# pod 'FMDB/standalone/FTS'   # FMDB with latest SQLite amalgamation source and FTS
+# pod 'FMDB/SQLCipher'   # FMDB with SQLCipher
+#pod 'MagicalRecord', '2.3.0'
+
+#加载动画
+pod 'MBProgressHUD', '0.9.1'
+
+#下啦刷新
+pod 'MJRefresh', '2.0.2'
+
+#输入框跳转
+#pod 'XCDFormInputAccessoryView7', '1.1.2'
+
+#加密工具
+#pod 'RNCryptor', '2.2'
+pod 'SSKeychain', '1.2.3'
+
+#支付
+pod 'Pingpp/Alipay', '2.2.0'
+
+pod 'ZXingObjC', '3.1.0'
+
+#百度地图
+pod 'BaiduMapKit', '2.9.1'
+
+target 'WanJiCard' do
+    
+end
+
+target 'WanJiCard_InHouse' do
+    
+end
+

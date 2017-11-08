@@ -1,0 +1,139 @@
+﻿───────
+ 代码文件结构
+───────
+phpdemo
+  ├src--------------------------------类文件夹
+  │  ├com.merchant.demo---------------商户对接demo目录，商户可参考该目录下的文件进行自己的业务逻辑编写
+  │  │  │
+  │  │  ├Constants.php----------------商户参数配置类文件
+  │  │  ├DemoTest.php-----------------商户接入通用接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │  ├DemoTestApi.php--------------【纯API接口版本】商户下单支付接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │  ├DemoTestH5.php---------------【H5页面标准版】商户下单接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │  ├DemoTestSdk.php--------------【SDK标准版】和【纯SDK密码键盘版】商户下单接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │  ├DemoTestSmsApi.php-----------【短信+API接口版本】商户下单接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │  └DemoTestSmsH5.php------------【短信+H5页面版本】商户下单接口测试类文件；对接人员参考该文件如何对接口进行调用；
+  │  │
+  │  ├com.payeco.client---------------易联对接接口封装文件目录（已封装）
+  │  │  │
+  │  │  ├ConstantsClient.php---------易联服务器接口调用基础参数定义类；
+  │  │  ├TransactionClient.php-------易联服务器通用接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │  ├TransactionClientApi.php----【纯API接口版本】商户下单支付接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │  ├TransactionClientH5.php-----【H5页面标准版】商户下单接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │  ├TransactionClientSdk.php----【SDK标准版】和【纯SDK密码键盘版】商户下单接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │  ├TransactionClientSmsApi.php-【短信+API接口版本】商户下单接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │  └TransactionClientSmsH5.php--【短信+H5页面版本】商户下单接口调用API封装类，商户需要调用该文件提供的API接口，完成服务器的对接。
+  │  │
+  │  └com.payeco.tools----------------易联对接接口工具类目录
+  │     │
+  │     ├HttpClient.php---------------http通讯基础类文件
+  │     ├Log.php----------------------日志文件打印类文件
+  │     ├Signatory.php----------------RSA签名和验证签名基础类文件
+  │     ├Tools.php--------------------基础函数类文件
+  │     └Xml.java---------------------返回报文XML转换的类文件
+  │
+  ├dll--------------------------------openssl动态库
+  │  │
+  │  ├libeay32.dll--------------------openssl基础库，需要拷贝到system32文件目录中
+  │  ├php_openssl.dll-----------------openssl函数库，若php安装目录下（php\ext）中没有php_openssl.dll（若已经存在，请不要覆盖），再复制到装目录下（php\ext）
+  │  └ssleay32.dll--------------------openssl基础库，需要拷贝到system32文件目录中
+  │
+  ├key--------------------------------密钥文件目录
+  │  │
+  │  ├rsa_private_key.pem-------------商户RSA密钥对的私钥文件，通过 genrsa -out rsa_private_key.pem 1024 命名产生
+  │  ├rsa_public_key_product.pem------易联订单验证RSA公钥（生产环境），由易联提供
+  │  └rsa_public_key_test.pem---------易联订单验证RSA公钥（测试环境），由易联提供
+  │
+  ├log--------------------------------日志目录
+  │  │
+  │  └log.txt-------------------------日志记录文件
+  │
+  ├cacert.pem-------------------------进行SSL连接是需要CA证书链文件；可以通过 http://curl.haxx.se/ca/cacert.pem 下载最新的文件
+  ├index.php--------------------------服务器对接测试主页面
+  ├Notify.php-------------------------接收订单结果通知的逻辑文件；对接人员参考该文件完成自己的接收订单结果通知处理逻辑；
+  ├Order.php--------------------------接收订单请求，完成下订单（【SDK标准版】和【纯SDK密码键盘版】）处理的类文件；对接人员参考该文件完成下订单处理；
+  ├OrderH5.php------------------------接收订单请求，完成下订单（【H5页面标准版】）处理的类文件；对接人员参考该文件完成下订单处理；
+  ├ReturnH5.php-----------------------接收同步通知(【H5页面标准版】)，完成签名验证； 业务逻辑需要商户自行补充
+  ├test.php---------------------------DemoTest的函数调用
+  └说明.txt---------------------------使用说明文本
+
+
+※注意※
+◆需要配置的文件是：
+--src\com\merchant\demo\Constants.php
+	MERCHANT_ID ： 							商户编号，由易联产生，邮件发送给商户
+	MERCHANT_NOTIFY_URL：				商户接收订单通知接口地址
+	MERCHANT_RETURN_URL：       商户接收订单通知接口地址(同步通知),H5版本对接需要该参数；
+	MERCHANT_RSA_PRIVATE_KEY：	商户RSA私钥文件（带目录），通过 genrsa -out rsa_private_key.pem 1024 命名产生最原始文件
+	PAYECO_URL：								易联服务器地址；根据调试的环境分别选择【测试环境】和【生产环境】；
+	PAYECO_RSA_PUBLIC_KEY：			订单RSA公钥文件（带目录， 易联提供）；根据调试的环境分别选择【测试环境】和【生产环境】；
+
+
+◆接口调用说明：
+1、下订单接口（必须调试接口）：
+	  【H5页面标准版】参考【Order.php】文件，H5版本对API接口调用如下：
+		$ret = TransactionClientSdk::MerchantOrder($merchantId,$merchOrderId, $amount, $orderDesc, $tradeTime, $expTime,
+    				$notifyUrl, $extData, $miscData, $notifyFlag,
+    				Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+    				Constants::getPayecoUrl(), $retXml);
+	  【H5页面标准版】参考【OrderH5.php】文件，H5版本对API接口调用如下：
+		$ret = TransactionClientH5::MerchantOrderH5($merchantId,
+				$merchOrderId, $amount, $orderDesc, $tradeTime, $expTime,$notifyUrl, $returnUrl, $extData, $miscData, $notifyFlag, $clientIp,
+				Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+				Constants::getPayecoUrl(), $retXml);
+    【短信+API接口版本】参考【DemoTestSmsApi.php】文件，对API接口调用如下：
+      //发送短信
+			$ret = TransactionClientSmsApi::OrderSendSmCode($merchantId, $smId, $merchOrderId, $tradeTime, $mobileNo, $verifyTradeCode, $smParam,
+							Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+							Constants::getPayecoUrl(), $retXml);
+			//下单支付
+			$ret = TransactionClientSmsApi::MerchantOrderPayByAcc($merchantId, $industryId, $merchOrderId, $amount, $orderDesc,
+					    $tradeTime, $expTime, $notifyUrl, $extData, $miscData, $notifyFlag, $smId, $smCode,
+					    Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+					    Constants::getPayecoUrl(), $retXml);
+    【短信+H5页面版本】参考【DemoTestSmsH5.php】文件，对API接口调用如下：
+      //下单
+			$ret = TransactionClientSmsH5::MerchantOrderSmsH5Pay($merchantId,
+								$merchOrderId, $amount, $orderDesc, $tradeTime, $expTime,
+								$notifyUrl, $returnUrl, $extData, $miscData, $notifyFlag,
+								Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+								Constants::getPayecoUrl(), $retXml);
+			//重新发送短信
+			$ret = TransactionClientSmsH5::OrderSmsSendAgain($merchantId, $merchOrderId, $tradeTime,
+					Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+					Constants::getPayecoUrl(), $retXml);
+    【纯API接口版本】参考【DemoTestApi.php】文件，对API接口调用如下：
+			//下单支付
+			$ret = TransactionClientApi::MerchantOrderPayQuickByAcc($merchantId, $industryId, $merchOrderId, $amount, $orderDesc,
+					    $tradeTime, $expTime, $notifyUrl, $extData, $miscData, $notifyFlag,
+					    Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+					    Constants::getPayecoUrl(), $retXml);
+
+2、订单结果通知签名验证接口（必须调试接口）
+		参考【Notify.php】文件，对API接口调用如下：
+		$b = TransactionClient::bCheckNotifySign($version, $merchantId, $merchOrderId,
+				$amount, $extData, $orderId, $status, $payTime, $settleDate, $sign,
+				Constants::getPayecoRsaPublicKey());
+
+3、订单查询、冲正、退款等接口（可选调试接口）：
+		参考【DemoTest.php】文件，对API接口调用如下：
+		  //订单查询接口
+			$ret = TransactionClient::OrderQuery($merchantId, $merchOrderId, $tradeTime,
+      					Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+      					Constants::getPayecoUrl(), $retXml);
+			//订单冲正接口
+			$ret = TransactionClient::OrderReverse($merchantId, $merchOrderId, $amount, $tradeTime,
+      					Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+      					Constants::getPayecoUrl(), $retXml);
+			//订单退款申请接口
+			$ret = TransactionClient::OrderRefundReq($merchantId, $merchOrderId, $merchRefundId, $amount, $tradeTime,
+							Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+							Constants::getPayecoUrl(), $retXml);
+      //订单退款结果查询接口
+			$ret = TransactionClient::OrderRefundQuery($merchantId, $merchOrderId, $merchRefundId, $tradeTime,
+					Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+					Constants::getPayecoUrl(), $retXml);
+			//互联网金融行业银行卡解除绑定接口
+			$ret = TransactionClient::UnboundBankCard($merchantId, $bankAccNo, $tradeTime,
+					Constants::getMerchantRsaPrivateKey(), Constants::getPayecoRsaPublicKey(),
+					Constants::getPayecoUrl(), $retXml);
+

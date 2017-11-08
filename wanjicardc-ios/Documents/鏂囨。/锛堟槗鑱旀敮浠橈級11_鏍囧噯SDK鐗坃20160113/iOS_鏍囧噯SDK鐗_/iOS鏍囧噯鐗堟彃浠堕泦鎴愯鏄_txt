@@ -1,0 +1,74 @@
+易联支付插件包说明
+一. 包含文件说明
+     对接资源包(目录)
+       libPayecoPayPlugin.h  			支付静态库头文件
+       libPayecoPayPlugin.a  			支付静态库文件(包含模拟器及设备)
+     对接Demo(目录)     支付演示程序(PayEcoPluginJointDemo)
+
+二. 支付插件库文件使用说明
+     1.拷贝libPayecoPayPlugin.h,libPayecoPayPlugin.a到xcode项目的相关目录下,如: PayEcoPluginJointDemo/ppilib
+     2.在xcode项目中直接添加库文件,如: File->Add File to "PayEcoPluginJointDemo"  (可选择添加库文件目录ppilib)
+       也可用添加Frameworks的方式来添加 Build Phases -> Link Binary With Libraries
+       设置搜索库文件路径: LIBRARY_SEARCH_PATHS -> $(inherited) $(SRCROOT)/PayEcoPluginJointDemo/ppilib/
+     3.程序编译设置:
+         Build Settings -> Linking -> Other Link Flags: -ObjC
+     4.Frameworks添加:
+         Security.framework
+         SystemConfiguration.framework
+         CFNetwork.framework
+         QuartzCore.framework
+         CoreGraphics.framework
+	 CoreLocation.framework
+     5.支付代理定义(见libPayecoPayPlugin.h)
+       //易联支付代理
+       @protocol PayEcoPpiDelegate <NSObject>
+
+       @optional
+       - (void)payResponse:(NSString *)respJson;       //respJson: 支付返回数据报文(json格式)
+       @end
+     6.支付方法及参数说明(见libPayecoPayPlugin.h)
+       /*
+        *  支付处理(支付界面采用弹出模式)
+        *  env:          环境参数 00: 测试环境,01: 生产环境
+        *  reqJson:      支付请求数据报文(json格式)
+        *  delegate:     易联支付代理,用于处理支付结果
+        *  orientation:  易联支付界面的方向。方向参数: 00:横屏 01:竖屏
+        */
+       - (void)startPay:(NSString *)reqJson delegate:(id<PayEcoPpiDelegate>) delegate env:(NSString *)env orientation:(NSString *)orientation;
+
+三. 支付插件编程说明(可参见支付演示程序:PayPpiDemoSubmit.h,PayPpiDemoSubmit.m)
+    1. 引入头文件 #import libPayecoPayPlugin.h
+    2. 对象实现易联支付代理定义
+       @interface PayPpiDemoInput : UIViewController <PayEcoPpiDelegate>
+       ...
+       @end
+    3. 易联支付代理代码实现
+        #pragma mark - PayEcoPpiDelegate
+        - (void)payResponse:(NSString *)respJson
+        {
+          NSLog(@"\nPayEco PpiDelegate payResponse:%@",respJson);
+
+          //商户调用结束,显示返回数据
+          NSDictionary *dict = [self toJsonObjectWithJsonString:respJson];
+          NSString *respCode = [dict objectForKey:@"respCode"];
+          NSString *respDesc = @"支付结束";
+          if ([respCode isEqualToString:@"0000"]) {
+            respDesc = @"支付成功";
+          }
+          UIAlertView *uiAlert = [[UIAlertView alloc] initWithTitle:respDesc message:respJson delegate:nil cancelButtonTitle:@"取消" otherButtonTitles: nil];
+          [uiAlert show];
+        }
+    4. 开始支付请求
+       PayEcoPpi *payEcoPpi = [[PayEcoPpi alloc] init];
+       [payEcoPpi startPay:reqJson delegate:self env:@"00" orientation:@“01”];
+
+四: PayEcoPluginJointDemo运行错误
+		1.运行时报以下错误(该错误是由于iOS添加第三方库文件时,使用了绝对路径导致)
+      ld: warning: directory not found for option '-L/work/corporation/payeco/svn/PlugIn/code/client/ios/PayEcoPluginJointDemo/PayEcoPluginJointDemo/libPayecoPayPlugin'
+      ld: warning: directory not found for option '-L/work/corporation/payeco/svn/PlugIn/code/client/ios/PayEcoPluginJointDemo/PayEcoPluginJointDemo/ppilib'
+    2.问题解决1:
+      1). 设置搜索库文件路径: LIBRARY_SEARCH_PATHS -> $(inherited) $(SRCROOT)/PayEcoPluginJointDemo/ppilib/
+    3.问题解决2:
+      1). 删除PayEcoPluginJointDemo下ppilib目录的引用(不能删除实际目录)
+      2). 在PayEcoPluginJointDemo项目中再次添加库目录ppilib(如: File->Add File to "PayEcoPluginJointDemo" 选择ppilib目录)
+      3). 也可用添加Frameworks的方式来添加libPayecoPayPlugin.a Build Phases -> Link Binary With Libraries

@@ -1,0 +1,44 @@
+//
+//  PrefixHeader.pch
+//  WanJiCard
+//
+//  Created by Harry Hu on 15/8/28.
+//  Copyright (c) 2015年 zOne. All rights reserved.
+//
+
+#ifndef WanJiCard_PrefixHeader_pch
+#define WanJiCard_PrefixHeader_pch
+
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
+
+#import "WJConstKey.h"
+#import "WJBlockDefine.h"
+#import "WJColorDefine.h"
+#import "WJEnumType.h"
+#import "WJFont.h"
+#import "WJJudgementDefine.h"
+#import "WJShareSDKAppKeyHeader.h"
+
+#import "MBProgressHUD.h"
+
+#import "WJNavigationController.h"
+#import "WJViewController.h"
+
+#import "WJUtilityMethod.h"
+#import "WJGlobalVariable.h"
+
+#import "TKAlertCenter.h"
+
+#import "NSString+CoculationSize.h"
+#import "NSString+SHA.h"
+
+#import "UIImageView+WebCache.h"
+
+#import "UIView+HandyAutoLayout.h"
+#import "UIView+LayoutMethods.h"
+
+#import "WJDBPersonManager.h"
+
+#import "UILabel+LabelHeightAndWidth.h"
+
+#endif

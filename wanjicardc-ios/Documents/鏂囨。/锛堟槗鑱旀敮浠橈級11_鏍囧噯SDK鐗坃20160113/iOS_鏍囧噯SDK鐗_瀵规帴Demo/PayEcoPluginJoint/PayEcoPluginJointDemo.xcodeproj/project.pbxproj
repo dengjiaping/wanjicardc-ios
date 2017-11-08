@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4691AA91A6F576B00384E01 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4691AA81A6F576A00384E01 /* CFNetwork.framework */; };
+		D4691AAC1A6F57CD00384E01 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4691AAB1A6F57CD00384E01 /* Security.framework */; };
+		D4691AAE1A6F57EC00384E01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4691AAD1A6F57EC00384E01 /* SystemConfiguration.framework */; };
+		D4691AB01A6F57F500384E01 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4691AAF1A6F57F500384E01 /* QuartzCore.framework */; };
+		D4691AB21A6F581C00384E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4691AB11A6F581C00384E01 /* CoreGraphics.framework */; };
+		D4691AB41A6F58FA00384E01 /* 说明(客户端demo).txt in Resources */ = {isa = PBXBuildFile; fileRef = D4691AB31A6F58FA00384E01 /* 说明(客户端demo).txt */; };
+		D46D7B571A6D015E004CFB9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D7B561A6D015E004CFB9E /* main.m */; };
+		D46D7B5A1A6D015E004CFB9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D7B591A6D015E004CFB9E /* AppDelegate.m */; };
+		D46D7B5D1A6D015E004CFB9E /* PayPpiDemoInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D7B5C1A6D015E004CFB9E /* PayPpiDemoInput.m */; };
+		D46D7B601A6D015E004CFB9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B5E1A6D015E004CFB9E /* Main.storyboard */; };
+		D46D7B621A6D015E004CFB9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B611A6D015E004CFB9E /* Images.xcassets */; };
+		D46D7B651A6D015E004CFB9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B631A6D015E004CFB9E /* LaunchScreen.xib */; };
+		D46D7B711A6D015E004CFB9E /* PayEcoPluginJointDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D7B701A6D015E004CFB9E /* PayEcoPluginJointDemoTests.m */; };
+		D46D7B7D1A6D028B004CFB9E /* libPayecoPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D7B7B1A6D028B004CFB9E /* libPayecoPayPlugin.a */; };
+		D46D7B871A6D02D9004CFB9E /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B801A6D02D9004CFB9E /* about.png */; };
+		D46D7B881A6D02D9004CFB9E /* default_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B811A6D02D9004CFB9E /* default_btn.png */; };
+		D46D7B891A6D02D9004CFB9E /* default_btn_press.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B821A6D02D9004CFB9E /* default_btn_press.png */; };
+		D46D7B8A1A6D02D9004CFB9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B831A6D02D9004CFB9E /* icon.png */; };
+		D46D7B8B1A6D02D9004CFB9E /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B841A6D02D9004CFB9E /* icon@2x.png */; };
+		D46D7B8C1A6D02D9004CFB9E /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46D7B851A6D02D9004CFB9E /* icon@3x.png */; };
+		D46D7BA81A6D105E004CFB9E /* PayPpiDemoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D7BA71A6D105E004CFB9E /* PayPpiDemoResult.m */; };
+		D47E4FE01A6DE7EE008B5000 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47E4FDF1A6DE7EE008B5000 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D46D7B6B1A6D015E004CFB9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D46D7B491A6D015E004CFB9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D46D7B501A6D015E004CFB9E;
+			remoteInfo = PayEcoPluginJointDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D462CAE91ABAA61F00A68FCD /* PPIHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPIHudView.h; sourceTree = "<group>"; };
+		D4691AA81A6F576A00384E01 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D4691AAB1A6F57CD00384E01 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D4691AAD1A6F57EC00384E01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D4691AAF1A6F57F500384E01 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D4691AB11A6F581C00384E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D4691AB31A6F58FA00384E01 /* 说明(客户端demo).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "说明(客户端demo).txt"; sourceTree = "<group>"; };
+		D46D7B511A6D015E004CFB9E /* PayEcoPluginJointDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayEcoPluginJointDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46D7B551A6D015E004CFB9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46D7B561A6D015E004CFB9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D46D7B581A6D015E004CFB9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D46D7B591A6D015E004CFB9E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D46D7B5B1A6D015E004CFB9E /* PayPpiDemoInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPpiDemoInput.h; sourceTree = "<group>"; };
+		D46D7B5C1A6D015E004CFB9E /* PayPpiDemoInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayPpiDemoInput.m; sourceTree = "<group>"; };
+		D46D7B5F1A6D015E004CFB9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D46D7B611A6D015E004CFB9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D46D7B641A6D015E004CFB9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D46D7B6A1A6D015E004CFB9E /* PayEcoPluginJointDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayEcoPluginJointDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46D7B6F1A6D015E004CFB9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46D7B701A6D015E004CFB9E /* PayEcoPluginJointDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayEcoPluginJointDemoTests.m; sourceTree = "<group>"; };
+		D46D7B7B1A6D028B004CFB9E /* libPayecoPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayecoPayPlugin.a; sourceTree = "<group>"; };
+		D46D7B7C1A6D028B004CFB9E /* libPayecoPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libPayecoPayPlugin.h; sourceTree = "<group>"; };
+		D46D7B801A6D02D9004CFB9E /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		D46D7B811A6D02D9004CFB9E /* default_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_btn.png; sourceTree = "<group>"; };
+		D46D7B821A6D02D9004CFB9E /* default_btn_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_btn_press.png; sourceTree = "<group>"; };
+		D46D7B831A6D02D9004CFB9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D46D7B841A6D02D9004CFB9E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		D46D7B851A6D02D9004CFB9E /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
+		D46D7B9B1A6D074A004CFB9E /* SKYFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKYFormRequest.h; sourceTree = "<group>"; };
+		D46D7BA61A6D105E004CFB9E /* PayPpiDemoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPpiDemoResult.h; sourceTree = "<group>"; };
+		D46D7BA71A6D105E004CFB9E /* PayPpiDemoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayPpiDemoResult.m; sourceTree = "<group>"; };
+		D47E4FDF1A6DE7EE008B5000 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D46D7B4E1A6D015E004CFB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4691AB21A6F581C00384E01 /* CoreGraphics.framework in Frameworks */,
+				D4691AB01A6F57F500384E01 /* QuartzCore.framework in Frameworks */,
+				D4691AAE1A6F57EC00384E01 /* SystemConfiguration.framework in Frameworks */,
+				D4691AAC1A6F57CD00384E01 /* Security.framework in Frameworks */,
+				D4691AA91A6F576B00384E01 /* CFNetwork.framework in Frameworks */,
+				D47E4FE01A6DE7EE008B5000 /* CoreLocation.framework in Frameworks */,
+				D46D7B7D1A6D028B004CFB9E /* libPayecoPayPlugin.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46D7B671A6D015E004CFB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4691AAA1A6F579400384E01 /* ppiframework */ = {
+			isa = PBXGroup;
+			children = (
+				D4691AB11A6F581C00384E01 /* CoreGraphics.framework */,
+				D4691AAF1A6F57F500384E01 /* QuartzCore.framework */,
+				D4691AAD1A6F57EC00384E01 /* SystemConfiguration.framework */,
+				D4691AAB1A6F57CD00384E01 /* Security.framework */,
+				D47E4FDF1A6DE7EE008B5000 /* CoreLocation.framework */,
+				D4691AA81A6F576A00384E01 /* CFNetwork.framework */,
+			);
+			name = ppiframework;
+			path = ppiFramework;
+			sourceTree = "<group>";
+		};
+		D4691AB51A6F591C00384E01 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B5B1A6D015E004CFB9E /* PayPpiDemoInput.h */,
+				D46D7B5C1A6D015E004CFB9E /* PayPpiDemoInput.m */,
+				D46D7BA61A6D105E004CFB9E /* PayPpiDemoResult.h */,
+				D46D7BA71A6D105E004CFB9E /* PayPpiDemoResult.m */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		D46D7B481A6D015E004CFB9E = {
+			isa = PBXGroup;
+			children = (
+				D46D7B531A6D015E004CFB9E /* PayEcoPluginJointDemo */,
+				D46D7B6D1A6D015E004CFB9E /* PayEcoPluginJointDemoTests */,
+				D46D7B521A6D015E004CFB9E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D46D7B521A6D015E004CFB9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B511A6D015E004CFB9E /* PayEcoPluginJointDemo.app */,
+				D46D7B6A1A6D015E004CFB9E /* PayEcoPluginJointDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D46D7B531A6D015E004CFB9E /* PayEcoPluginJointDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D4691AB51A6F591C00384E01 /* ui */,
+				D4691AAA1A6F579400384E01 /* ppiframework */,
+				D46D7B8D1A6D074A004CFB9E /* classes */,
+				D46D7B7E1A6D02D9004CFB9E /* res */,
+				D46D7B7A1A6D028B004CFB9E /* ppilib */,
+				D46D7B541A6D015E004CFB9E /* Supporting Files */,
+			);
+			path = PayEcoPluginJointDemo;
+			sourceTree = "<group>";
+		};
+		D46D7B541A6D015E004CFB9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B581A6D015E004CFB9E /* AppDelegate.h */,
+				D46D7B591A6D015E004CFB9E /* AppDelegate.m */,
+				D46D7B5E1A6D015E004CFB9E /* Main.storyboard */,
+				D46D7B611A6D015E004CFB9E /* Images.xcassets */,
+				D46D7B631A6D015E004CFB9E /* LaunchScreen.xib */,
+				D4691AB31A6F58FA00384E01 /* 说明(客户端demo).txt */,
+				D46D7B551A6D015E004CFB9E /* Info.plist */,
+				D46D7B561A6D015E004CFB9E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D46D7B6D1A6D015E004CFB9E /* PayEcoPluginJointDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B701A6D015E004CFB9E /* PayEcoPluginJointDemoTests.m */,
+				D46D7B6E1A6D015E004CFB9E /* Supporting Files */,
+			);
+			path = PayEcoPluginJointDemoTests;
+			sourceTree = "<group>";
+		};
+		D46D7B6E1A6D015E004CFB9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B6F1A6D015E004CFB9E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D46D7B7A1A6D028B004CFB9E /* ppilib */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B7B1A6D028B004CFB9E /* libPayecoPayPlugin.a */,
+				D46D7B7C1A6D028B004CFB9E /* libPayecoPayPlugin.h */,
+			);
+			path = ppilib;
+			sourceTree = "<group>";
+		};
+		D46D7B7E1A6D02D9004CFB9E /* res */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B7F1A6D02D9004CFB9E /* image */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		D46D7B7F1A6D02D9004CFB9E /* image */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B801A6D02D9004CFB9E /* about.png */,
+				D46D7B811A6D02D9004CFB9E /* default_btn.png */,
+				D46D7B821A6D02D9004CFB9E /* default_btn_press.png */,
+				D46D7B831A6D02D9004CFB9E /* icon.png */,
+				D46D7B841A6D02D9004CFB9E /* icon@2x.png */,
+				D46D7B851A6D02D9004CFB9E /* icon@3x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		D46D7B8D1A6D074A004CFB9E /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				D46D7B8E1A6D074A004CFB9E /* inc */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		D46D7B8E1A6D074A004CFB9E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				D462CAE91ABAA61F00A68FCD /* PPIHudView.h */,
+				D46D7B9B1A6D074A004CFB9E /* SKYFormRequest.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D46D7B501A6D015E004CFB9E /* PayEcoPluginJointDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D46D7B741A6D015E004CFB9E /* Build configuration list for PBXNativeTarget "PayEcoPluginJointDemo" */;
+			buildPhases = (
+				D46D7B4D1A6D015E004CFB9E /* Sources */,
+				D46D7B4E1A6D015E004CFB9E /* Frameworks */,
+				D46D7B4F1A6D015E004CFB9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PayEcoPluginJointDemo;
+			productName = PayEcoPluginJointDemo;
+			productReference = D46D7B511A6D015E004CFB9E /* PayEcoPluginJointDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D46D7B691A6D015E004CFB9E /* PayEcoPluginJointDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D46D7B771A6D015E004CFB9E /* Build configuration list for PBXNativeTarget "PayEcoPluginJointDemoTests" */;
+			buildPhases = (
+				D46D7B661A6D015E004CFB9E /* Sources */,
+				D46D7B671A6D015E004CFB9E /* Frameworks */,
+				D46D7B681A6D015E004CFB9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D46D7B6C1A6D015E004CFB9E /* PBXTargetDependency */,
+			);
+			name = PayEcoPluginJointDemoTests;
+			productName = PayEcoPluginJointDemoTests;
+			productReference = D46D7B6A1A6D015E004CFB9E /* PayEcoPluginJointDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D46D7B491A6D015E004CFB9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = PayEco;
+				TargetAttributes = {
+					D46D7B501A6D015E004CFB9E = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CLMP8Z622H;
+					};
+					D46D7B691A6D015E004CFB9E = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = D46D7B501A6D015E004CFB9E;
+					};
+				};
+			};
+			buildConfigurationList = D46D7B4C1A6D015E004CFB9E /* Build configuration list for PBXProject "PayEcoPluginJointDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D46D7B481A6D015E004CFB9E;
+			productRefGroup = D46D7B521A6D015E004CFB9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D46D7B501A6D015E004CFB9E /* PayEcoPluginJointDemo */,
+				D46D7B691A6D015E004CFB9E /* PayEcoPluginJointDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D46D7B4F1A6D015E004CFB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46D7B881A6D02D9004CFB9E /* default_btn.png in Resources */,
+				D46D7B8B1A6D02D9004CFB9E /* icon@2x.png in Resources */,
+				D46D7B8C1A6D02D9004CFB9E /* icon@3x.png in Resources */,
+				D46D7B8A1A6D02D9004CFB9E /* icon.png in Resources */,
+				D46D7B601A6D015E004CFB9E /* Main.storyboard in Resources */,
+				D46D7B651A6D015E004CFB9E /* LaunchScreen.xib in Resources */,
+				D46D7B621A6D015E004CFB9E /* Images.xcassets in Resources */,
+				D46D7B891A6D02D9004CFB9E /* default_btn_press.png in Resources */,
+				D46D7B871A6D02D9004CFB9E /* about.png in Resources */,
+				D4691AB41A6F58FA00384E01 /* 说明(客户端demo).txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46D7B681A6D015E004CFB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D46D7B4D1A6D015E004CFB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46D7B5D1A6D015E004CFB9E /* PayPpiDemoInput.m in Sources */,
+				D46D7B5A1A6D015E004CFB9E /* AppDelegate.m in Sources */,
+				D46D7BA81A6D105E004CFB9E /* PayPpiDemoResult.m in Sources */,
+				D46D7B571A6D015E004CFB9E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46D7B661A6D015E004CFB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46D7B711A6D015E004CFB9E /* PayEcoPluginJointDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D46D7B6C1A6D015E004CFB9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D46D7B501A6D015E004CFB9E /* PayEcoPluginJointDemo */;
+			targetProxy = D46D7B6B1A6D015E004CFB9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D46D7B5E1A6D015E004CFB9E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46D7B5F1A6D015E004CFB9E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D46D7B631A6D015E004CFB9E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46D7B641A6D015E004CFB9E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D46D7B721A6D015E004CFB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos8.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D46D7B731A6D015E004CFB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos8.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D46D7B751A6D015E004CFB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PayEcoPluginJointDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayEcoPluginJointDemo/ppilib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos9.0;
+			};
+			name = Debug;
+		};
+		D46D7B761A6D015E004CFB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PayEcoPluginJointDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayEcoPluginJointDemo/ppilib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos9.0;
+			};
+			name = Release;
+		};
+		D46D7B781A6D015E004CFB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PayEcoPluginJointDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayEcoPluginJointDemo.app/PayEcoPluginJointDemo";
+			};
+			name = Debug;
+		};
+		D46D7B791A6D015E004CFB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PayEcoPluginJointDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayEcoPluginJointDemo.app/PayEcoPluginJointDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D46D7B4C1A6D015E004CFB9E /* Build configuration list for PBXProject "PayEcoPluginJointDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46D7B721A6D015E004CFB9E /* Debug */,
+				D46D7B731A6D015E004CFB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D46D7B741A6D015E004CFB9E /* Build configuration list for PBXNativeTarget "PayEcoPluginJointDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46D7B751A6D015E004CFB9E /* Debug */,
+				D46D7B761A6D015E004CFB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D46D7B771A6D015E004CFB9E /* Build configuration list for PBXNativeTarget "PayEcoPluginJointDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46D7B781A6D015E004CFB9E /* Debug */,
+				D46D7B791A6D015E004CFB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D46D7B491A6D015E004CFB9E /* Project object */;
+}
